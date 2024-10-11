@@ -1,13 +1,19 @@
 package Auth;
 
-import ServerErrorMessage.ServerErrorMessage;
-public class Authentication  implements AuthService{
+import ServerMessages.ServerErrorMessage;
+public class Authentication implements AuthService{
     @Override
-    public void login(String email, String password) {
+    public Boolean login(String email, String password) {
         if(ValidatorManger.emailValidation(email) && ValidatorManger.passwordValidation(password)){
-
+            if(ValidatorManger.isExistInDataBase(email,password)){
+                return true;
+            }else{
+                System.out.println(ServerErrorMessage.notExistInDatabaseError);
+                return false;
+            }
         }else{
             System.out.println(ServerErrorMessage.emptyLoginError);
+            return false;
         }
     }
 
