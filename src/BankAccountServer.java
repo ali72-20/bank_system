@@ -13,10 +13,8 @@ public class BankAccountServer{
         System.out.println(ServerCostants.enterPasswordHint);
         String password = scanner.nextLine();
         Authentication authentication = new Authentication();
-        boolean isValidToLogin = authentication.login(email,password);
-        return isValidToLogin;
+        return authentication.login(email,password);
     }
-
 
     public static boolean register(){
         Scanner scanner = new Scanner(System.in);
@@ -27,8 +25,7 @@ public class BankAccountServer{
         System.out.println(ServerCostants.enterPasswordHint);
         String password = scanner.nextLine();
         Authentication authentication = new Authentication();
-        boolean isRegistered = authentication.register(userName, email, password);
-        return isRegistered;
+        return authentication.register(userName, email, password);
     }
     public static void serverServices(){
         Scanner scanner = new Scanner(System.in);

@@ -1,5 +1,4 @@
 package Data;
-
 import Auth.User;
 
 public interface DataBaseServices {

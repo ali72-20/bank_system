@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-abstract public class Database implements DataBaseServices {
+public abstract class Database implements DataBaseServices {
     public static List<User> database;
     public static void initDatabase(){
         database = new ArrayList<>();
