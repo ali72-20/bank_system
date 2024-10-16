@@ -5,14 +5,14 @@ import Auth.User;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 abstract public class Database implements DataBaseServices {
     public static List<User> database;
     public static void initDatabase(){
         database = new ArrayList<>();
     }
-
-    @Override
-    public void addUser(User user) {
+    public static void addUser(User user) {
 
     }
 
