@@ -10,6 +10,7 @@ public class SavingBankAccount extends BackAccount{
             this.setBalance(balance);
         }
     }
+
     @Override
     public String getAccountType(){
         return "Saving bank account";
