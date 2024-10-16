@@ -6,9 +6,6 @@ import constants.ServerCostants;
 import java.util.Scanner;
 
 public class BankAccountServer{
-
-    public static Database database;
-
     public static boolean login(){
         Scanner scanner = new Scanner(System.in);
         System.out.println(ServerCostants.enterEmailHint);
@@ -21,7 +18,7 @@ public class BankAccountServer{
     }
 
 
-    public static  boolean register(){
+    public static boolean register(){
         Scanner scanner = new Scanner(System.in);
         System.out.println(ServerCostants.enterEmailHint);
         String email = scanner.nextLine();
@@ -30,7 +27,7 @@ public class BankAccountServer{
         System.out.println(ServerCostants.enterPasswordHint);
         String password = scanner.nextLine();
         Authentication authentication = new Authentication();
-       boolean isRegistered = authentication.register(userName, email, password);
+        boolean isRegistered = authentication.register(userName, email, password);
         return isRegistered;
     }
     public static void serverServices(){
@@ -42,14 +39,15 @@ public class BankAccountServer{
             case 2: // withdraw
             case 3: // deposit
             case 4: // print information
-            case 5: // navigation back
-            case 6: // exist
+            case 5:
+                startServer();
+                break;
         }
     }
 
-    public static void main(String[] args) {
+
+    public static void startServer(){
         Scanner scanner = new Scanner(System.in);
-        Database.initDatabase();
         while (true) {
             Menus.loginRegisterMenu();
             int choice = scanner.nextInt();
@@ -67,11 +65,17 @@ public class BankAccountServer{
                     }
                     break;
                 case 3:
+                    System.out.println(ServerSuccessMessages.goodBye);
                     return;
                 default:
                     System.out.println(ServerErrorMessage.menuChoiceError);
             }
         }
+    }
+
+    public static void main(String[] args) {
+        Database.initDatabase();
+        startServer();
     }
 }
 

@@ -13,7 +13,7 @@ abstract public class Database implements DataBaseServices {
         database = new ArrayList<>();
     }
     public static void addUser(User user) {
-
+        database.add(user);
     }
 
     @Override
