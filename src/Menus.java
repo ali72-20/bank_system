@@ -1,20 +1,22 @@
+import ServerMessages.ServerStrings;
+
 abstract public class Menus {
     public static void loginRegisterMenu(){
-        System.out.println("1- Login");
-        System.out.println("2- Register");
-        System.out.println("3- Exit");
+        System.out.println("1- " + ServerStrings.login);
+        System.out.println("2- " + ServerStrings.register);
+        System.out.println("3- " + ServerStrings.exit);
     }
     public static void serverServices(){
-        System.out.println("1- Check balance");
-        System.out.println("2- withdraw");
-        System.out.println("3- deposit");
-        System.out.println("4- Show information");
-        System.out.println("5- Logout");
+        System.out.println("1- " + ServerStrings.checkBalance);
+        System.out.println("2- " + ServerStrings.withdraw);
+        System.out.println("3- " + ServerStrings.deposit);
+        System.out.println("4- " + ServerStrings.showInformation);
+        System.out.println("5- " + ServerStrings.logout);
     }
 
     public static void createNewAccountMenu(){
-        System.out.println("You need to create Account");
-        System.out.println("1- basic bank account");
-        System.out.println("2- saving bank account");
+        System.out.println(ServerStrings.youNeedToCreateAccount);
+        System.out.println("1- " + ServerStrings.basicBankAccount);
+        System.out.println("2- " + ServerStrings.savingBankAccount);
     }
 }

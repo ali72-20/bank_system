@@ -5,8 +5,8 @@ import BankControllers.CheckBankAccount;
 import BankControllers.SavingBankAccount;
 import Data.Database;
 import ServerMessages.ServerErrorMessage;
+import ServerMessages.ServerStrings;
 import ServerMessages.ServerSuccessMessages;
-import constants.ServerCostants;
 
 import java.util.Scanner;
 
@@ -15,9 +15,9 @@ public class BankAccountServer {
 
     public static boolean login() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println(ServerCostants.enterEmailHint);
+        System.out.println(ServerStrings.enterEmailHint);
         String email = scanner.nextLine();
-        System.out.println(ServerCostants.enterPasswordHint);
+        System.out.println(ServerStrings.enterPasswordHint);
         String password = scanner.nextLine();
         Authentication authentication = new Authentication();
         return authentication.login(email, password);
@@ -25,11 +25,11 @@ public class BankAccountServer {
 
     public static boolean register() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println(ServerCostants.enterEmailHint);
+        System.out.println(ServerStrings.enterEmailHint);
         String email = scanner.nextLine();
-        System.out.println(ServerCostants.userNameHint);
+        System.out.println(ServerStrings.userNameHint);
         String userName = scanner.nextLine();
-        System.out.println(ServerCostants.enterPasswordHint);
+        System.out.println(ServerStrings.enterPasswordHint);
         String password = scanner.nextLine();
         Authentication authentication = new Authentication();
         user = new User(userName, email, password);
@@ -37,7 +37,7 @@ public class BankAccountServer {
     }
 
     public static void showBalance() {
-        System.out.println("Your account balance: " + user.getBackAccount().getBalance());
+        System.out.println(ServerStrings.yourAccountBalance + user.getBackAccount().getBalance());
     }
 
     public static void serverServices() {
@@ -49,23 +49,23 @@ public class BankAccountServer {
                 showBalance();
                 break;
             case 2:
-                System.out.println("Enter withdraw money: ");
+                System.out.println(ServerStrings.enterWithDrawMoney);
                 double withdrawMoney = scanner.nextDouble();
                 if (user.getBackAccount().withdraw(withdrawMoney)) {
-                    System.out.println("Success");
+                    System.out.println(ServerSuccessMessages.success);
                     showBalance();
                 }else{
-                    System.out.println("Not available money");
+                    System.out.println(ServerStrings.notAvailableMoney);
                 }
                 break;
             case 3:
-                System.out.println("Enter deposit money");
+                System.out.println(ServerStrings.enterDepositMoney);
                 double depositMoney = scanner.nextDouble();
                 if(user.getBackAccount().deposit(depositMoney)){
-                    System.out.println("Success");
+                    System.out.println(ServerSuccessMessages.success);
                     showBalance();
                 }else{
-                    System.out.println("Something went wrong");
+                    System.out.println(ServerErrorMessage.somethingWentWrong);
                 }
                 break;
             case 4:
@@ -80,8 +80,8 @@ public class BankAccountServer {
     public static double enterStarterBalance() {
         Scanner scanner = new Scanner(System.in);
         double staterBalance = 0;
-        System.out.println("Enter starter balance: ");
-        System.out.println("Need to be more 1000 ");
+        System.out.println(ServerStrings.enterStartedBalance);
+        System.out.println(ServerStrings.needToBeMore1000);
         staterBalance = scanner.nextDouble();
         return staterBalance;
     }
@@ -100,7 +100,7 @@ public class BankAccountServer {
             } else if (choice == 2) {
                 double balance = enterStarterBalance();
                 while (balance < 1000) {
-                    System.out.println("Please enter balance more than 1000");
+                    System.out.println(ServerStrings.pleaseEnterMoreThan1000);
                     balance = enterStarterBalance();
                 }
                 bankAccount = new SavingBankAccount("434546", balance, usr);

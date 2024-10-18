@@ -1,5 +1,7 @@
 package BankControllers;
 import Auth.User;
+import ServerMessages.ServerErrorMessage;
+import ServerMessages.ServerStrings;
 
 public class SavingBankAccount extends BackAccount{
     public SavingBankAccount(String accountId,double balance, User user){
@@ -8,7 +10,7 @@ public class SavingBankAccount extends BackAccount{
 
     @Override
     public String getAccountType(){
-        return "Saving bank account";
+        return ServerStrings.savingBankAccount;
     }
 
 
@@ -18,7 +20,7 @@ public class SavingBankAccount extends BackAccount{
             this.setBalance(getBalance() - money);
             return true;
         }else{
-            System.out.println("Invalid operation");
+            System.out.println(ServerErrorMessage.invalidOperation);
             return false;
         }
     }

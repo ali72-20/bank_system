@@ -1,6 +1,8 @@
 package BankControllers;
 
 import Auth.User;
+import ServerMessages.ServerErrorMessage;
+import ServerMessages.ServerStrings;
 
 public class BackAccount{
     private String accountId;
@@ -43,7 +45,7 @@ public class BackAccount{
     }
 
     public String getAccountType(){
-       return "Basic bank account";
+       return ServerStrings.basicBankAccount;
     }
     public void showInformation(){
         System.out.println(getUser().getUserEmail());
@@ -56,7 +58,7 @@ public class BackAccount{
            this.balance += money;
            return true;
        }else {
-           System.out.println("Invalid money");
+           System.out.println(ServerErrorMessage.invalidMoney);
            return false;
        }
 
@@ -66,7 +68,7 @@ public class BackAccount{
             this.balance-=money;
             return true;
        }else{
-           System.out.println("Invalid money");
+           System.out.println(ServerErrorMessage.invalidMoney);
            return false;
        }
     }
