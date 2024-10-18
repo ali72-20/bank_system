@@ -3,18 +3,14 @@ import Auth.User;
 
 public class SavingBankAccount extends BackAccount{
     public SavingBankAccount(String accountId,double balance, User user){
-        super(accountId,user);
-        if(balance < 1000){
-            System.out.println("Not Valid balance");
-        }else{
-            this.setBalance(balance);
-        }
+        super(accountId,balance,user);
     }
 
     @Override
     public String getAccountType(){
         return "Saving bank account";
     }
+
 
     @Override
     public boolean withdraw(double money){

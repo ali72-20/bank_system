@@ -11,4 +11,10 @@ abstract public class Menus {
         System.out.println("4- Show information");
         System.out.println("5- Logout");
     }
+
+    public static void createNewAccountMenu(){
+        System.out.println("You need to create Account");
+        System.out.println("1- basic bank account");
+        System.out.println("2- saving bank account");
+    }
 }

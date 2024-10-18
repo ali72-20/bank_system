@@ -7,11 +7,13 @@ public class User {
     private String userEmail;
     private String userPassword;
     private BackAccount backAccount;
+    User(){
+        this.backAccount = null;
+    }
     public User(String userName, String userEmail, String userPassword){
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
-        this.backAccount = backAccount;
     }
 
     public String getUserName() {
