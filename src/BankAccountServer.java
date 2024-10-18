@@ -79,7 +79,7 @@ public class BankAccountServer {
 
     public static double enterStarterBalance() {
         Scanner scanner = new Scanner(System.in);
-        double staterBalance = 0;
+        double staterBalance;
         System.out.println(ServerStrings.enterStartedBalance);
         System.out.println(ServerStrings.needToBeMore1000);
         staterBalance = scanner.nextDouble();
